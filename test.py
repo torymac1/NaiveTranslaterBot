@@ -3,7 +3,7 @@
 
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import logging
-
+import translator
 
 # Enable logging
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
@@ -35,7 +35,7 @@ def error(bot, update, error):
 
 def translate(bot, update):
     text = update.message.text
-    result = get_content(text, '1')
+    result = translator.get_content(text, '1')
     update.message.reply_text(str(result['data']['trans_text']))
 
 
